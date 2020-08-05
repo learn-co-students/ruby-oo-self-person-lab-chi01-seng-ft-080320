@@ -4,9 +4,9 @@ require "pry"
 
 class Person 
 
-    attr_accessor :bank_account
+    attr_accessor :bank_account, :happiness
 
-    attr_reader :name, :hygiene, :happiness
+    attr_reader :name, :hygiene 
 
 
 
@@ -17,15 +17,14 @@ class Person
         @hygiene = 8
     end 
 
-
-    def happiness=(points)
+    ## Updated happiness and Hygiene methods to include elsif instead of three seperate if's!
+    
+    def happiness= (points)
         if(points >= 0 && points <= 10) 
             @happiness = points
-        end
-        if(points < 0 )
+        elsif(points < 0 )
             @happiness = 0
-        end
-        if(points > 10)
+        else (points > 10)
             @happiness = 10
         end 
         @happiness
@@ -35,11 +34,9 @@ class Person
     def hygiene=(points)
         if(points >= 0 && points <= 10) 
             @hygiene = points
-        end
-        if(points < 0 )
+        elsif(points < 0 )
             @hygiene = 0
-        end
-        if(points > 10)
+        else(points > 10)
             @hygiene = 10
         end 
         @hygiene
@@ -77,6 +74,21 @@ class Person
     end 
 
 
+    def start_conversation(person, topic)
+        if(topic == "politics")
+            self.happiness -=(2)
+            person.happiness -= (2)
+            'blah blah partisan blah lobbyist'
+        elsif
+            (topic == "weather")
+            self.happiness +=(1)
+            person.happiness += (1)
+            "blah blah sun blah rain"
+        else 
+            "blah blah blah blah blah"
+        end 
+    end     
+
 
 end 
 
@@ -85,4 +97,3 @@ charlie = Person.new("charlie")
 
 
 
-# binding.pry
