@@ -1,6 +1,7 @@
+require 'pry'
 class Person
-    attr_accessor :bank_account, :happiness
-    attr_reader :name
+    attr_accessor :bank_account
+    attr_reader :name, :happiness
 
     def initialize(name)
         @name = name
@@ -8,4 +9,17 @@ class Person
         @happiness = 8
     end 
 
+    def happiness=(index)
+        @happiness = index
+        if @happiness > 10
+            @happiness == 10
+        end 
+    end 
+
 end
+
+
+x = Person.new("Jesus")
+
+binding.pry 
+0
