@@ -51,4 +51,25 @@ def work_out(happiness_points=2, hygiene_points=3)
     self.hygiene -= hygiene_points
     p "♪ another one bites the dust ♫"
 end
+
+def call_friend(friend)
+self.happiness += 3
+friend.happiness += 3
+p "Hi #{friend.name}! It's #{self.name}. How are you?"
+end
+
+def start_conversation(caller, topic)
+if topic == "politics"
+self.happiness -= 2
+caller.happiness -= 2
+p "blah blah partisan blah lobbyist"
+elsif topic == "weather"
+self.happiness += 1
+caller.happiness += 1
+p "blah blah sun blah rain"
+else
+    p "blah blah blah blah blah"
+end
+
+end
 end
