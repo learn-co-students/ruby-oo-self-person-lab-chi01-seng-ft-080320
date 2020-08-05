@@ -1,28 +1,28 @@
 class Person
 
-    attr_reader :name, :happiness
     attr_accessor :bank_account
-
-def initialize(name= name, happiness = 8)
-    @name = name
-    @bank_account = 25
-    @happiness = happiness
-end
-
-def name 
-    @name
-end
-
-def happiness=(value)
-    if value > 10 
-        @happiness = 10
-    elsif value < 0 
-        @happiness = 0
-    else @happiness = happiness
+    attr_reader :name, :happiness, :hygiene
+  
+    def initialize(name)
+      @name = name
+      @bank_account = 25
+      @happiness = 8
+      @hygiene = 8
+    end
+  
+    def happiness=(num)
+      @happiness = num
+      @happiness = 10 if @happiness > 10
+      @happiness = 0 if @happiness < 0
+    end
+  
+    def hygiene=(num)
+      @hygiene = num
+      @hygiene = 10 if @hygiene > 10
+      @hygiene = 0 if @hygiene < 0
+    end
+  
+    def happy?
+      happiness > 7
     end
 end
-
-
-end#
-
-Steven = Person.new
